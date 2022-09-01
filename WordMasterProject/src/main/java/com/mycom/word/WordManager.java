@@ -3,7 +3,7 @@ package com.mycom.word;
 import java.util.Scanner;
 
 public class WordManager {
-    Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in, "EUC-KR");
     WordCRUD wordCRUD;
 
     WordManager() {
