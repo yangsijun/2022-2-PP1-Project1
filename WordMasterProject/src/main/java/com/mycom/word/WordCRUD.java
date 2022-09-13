@@ -123,7 +123,7 @@ public class WordCRUD implements ICRUD {
         String confirm = sc.next();
 
         if (Objects.equals(confirm, "Y") || Objects.equals(confirm, "y")) {
-            delete(idList.get(id - 1));
+            delete(list.get(idList.get(id - 1)));
             System.out.println("\n단어가 성공적으로 삭제되었습니다.");
         } else {
             System.out.println("\n단어 삭제가 취소되었습니다.");
@@ -135,7 +135,7 @@ public class WordCRUD implements ICRUD {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME));
             for (Word word : list) {
-                bw.write(word.toString());
+                bw.write(word.toFileString());
                 bw.newLine();
             }
             bw.close();
