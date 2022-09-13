@@ -1,5 +1,7 @@
 package com.mycom.word;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public class WordManager {
@@ -26,6 +28,8 @@ public class WordManager {
         return sc.nextInt();
     }
     public void start() {
+
+        wordCRUD.loadFile();
         while (true) {
             int menu = selectMenu();
 
@@ -35,11 +39,29 @@ public class WordManager {
             }
 
             switch(menu) {
+                case 1:
+                    wordCRUD.listAll();
+                    break;
+                case 2:
+                    wordCRUD.listByLevel();
+                    break;
+                case 3:
+                    wordCRUD.searchWord();
+                    break;
                 case 4:
                     wordCRUD.addWord();
                     break;
-                case 1:
-                    wordCRUD.listAll();
+                case 5:
+                    wordCRUD.updateWord();
+                    break;
+                case 6:
+                    wordCRUD.deleteWord();
+                    break;
+                case 7:
+                    wordCRUD.saveFile();
+                    break;
+                default:
+                    System.out.println("잘못된 메뉴 선택입니다. 다시 선택해주세요.");
                     break;
             }
         }
