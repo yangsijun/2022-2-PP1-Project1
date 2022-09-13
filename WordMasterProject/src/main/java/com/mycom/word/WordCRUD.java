@@ -8,8 +8,7 @@ import java.util.Scanner;
 public class WordCRUD implements ICRUD {
     ArrayList<Word> list;
     Scanner sc;
-    final String INPUT_FILENAME = "data.dat";
-    final String OUTPUT_FILENAME = "output.dat";
+    final String FILENAME = "data.dat";
 
     public WordCRUD(Scanner sc) {
         list = new ArrayList<>();
@@ -134,13 +133,13 @@ public class WordCRUD implements ICRUD {
     // 7. 파일 저장
     public void saveFile() {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(OUTPUT_FILENAME));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME));
             for (Word word : list) {
                 bw.write(word.toString());
                 bw.newLine();
             }
             bw.close();
-            System.out.println("\n모든 단어를 " + OUTPUT_FILENAME + "에 저장하였습니다.");
+            System.out.println("\n모든 단어를 " + FILENAME + "에 저장하였습니다.");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -149,7 +148,7 @@ public class WordCRUD implements ICRUD {
     // 파일 불러오기
     public void loadFile() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(INPUT_FILENAME));
+            BufferedReader br = new BufferedReader(new FileReader(FILENAME));
             String line;
             int cnt = 0;
 
