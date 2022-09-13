@@ -164,7 +164,7 @@ public class WordCRUD implements ICRUD {
                 cnt++;
             }
             br.close();
-            System.out.println("=> " + cnt + "개 단어 로딩 완료!");
+            System.out.println("=> " + cnt + "개 단어를 불러왔습니다.");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
